@@ -1,10 +1,10 @@
-// Guessing App Use Case 2-User Guess Submission
-// It  takes user input for the guess and validates it
+// Guessing App Use Case 3-Hint Generation
+// It takes user input,validates it and generates hint when necessary
 // @author Developer
-// @version 2.0
+// @version 3.0
 
-import java.util.Scanner;
-public class GuessingApp{
+import java.util.*;
+public class GuessingApp {
 	public static void main(String[] args){
 		System.out.println("Welcome to guessing app");
 		GameConfig game = new GameConfig();
@@ -18,11 +18,16 @@ public class GuessingApp{
 			int guess = sc.nextInt();
 			attempts++;
 			
+			
 			String result = GuessValidator.validateGuess(guess, game.getTargetNumber());
+			String hint = HintService.generateHint(game.getTargetNumber(), attempts);
+			System.out.println(hint);
 			System.out.println(result);
 			
 			if("correct".equals(result)){
 				break;
 			}
 		}
+		
+	}
 }
