@@ -6,7 +6,7 @@ class GameController {
     // Returns true if game should restart
     // Returns false if application should exit
     public static boolean restartGame(Scanner sc){
-        System.out.print("Do you want to play again?(Yes/No)");
+        System.out.print("Do you want to play again?(Yes/No):");
         return sc.nextLine().equalsIgnoreCase("yes");
     }
 }

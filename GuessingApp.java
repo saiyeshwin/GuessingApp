@@ -11,14 +11,14 @@ public class GuessingApp {
         GameConfig game = new GameConfig();
         game.showRules();
         Scanner sc = new Scanner(System.in);
-        int attempts = 0;
-        int hintsUsed = 0;
         System.out.print("Enter player name:");
         String player = sc.nextLine();
         boolean win = false;
 		boolean restart;
         // Game loop runs until max attempts are reached
 		do{
+			int attempts = 0;
+        	int hintsUsed = 0;
         	while (attempts < game.getMaxAttempts()) {
             	System.out.print("Enter your guess: ");
             	String input = sc.nextLine();
@@ -36,12 +36,12 @@ public class GuessingApp {
             	attempts++;
             	String result = GuessValidator.validateGuess(guess, game.getTargetNumber());
             	// A hint is generated only after an incorrect guess and within the allowed hint limit.
-            	if (!"CORRECT".equals(result) && hintsUsed < game.getMaxHints()) {
+            	if (!"correct".equals(result) && hintsUsed < game.getMaxHints()) {
                 	hintsUsed++;
                 	System.out.println(HintService.generateHint(game.getTargetNumber(), hintsUsed));
             	}
             	System.out.println(result);
-            	if ("CORRECT".equals(result)) {
+            	if ("correct".equals(result)) {
                 	win = true;
                 	break;
             	}
