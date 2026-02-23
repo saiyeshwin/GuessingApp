@@ -1,4 +1,4 @@
-# Guessing App\
+# Guessing App
 ## Use Case 1 
 Game Initialization – Random number generation, max attempts, hints setup, and rules display
 
